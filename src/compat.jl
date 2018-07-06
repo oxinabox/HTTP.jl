@@ -16,6 +16,7 @@ __init__() = supported() || compat_warn()
 
     using Base64
     import Dates
+    using Random
 
     const bytesavailable = Base.bytesavailable
     const compat_findfirst = Base.findfirst
