@@ -15,7 +15,7 @@ __init__() = supported() || compat_warn()
 @static if VERSION >= v07
 
     using Base64
-    import Dates
+    using Dates
 
     const bytesavailable = Base.bytesavailable
     const compat_findfirst = Base.findfirst

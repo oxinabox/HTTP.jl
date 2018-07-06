@@ -20,10 +20,12 @@ using HTTP.Dates
     include("loopback.jl");
     include("WebSockets.jl");
     include("messages.jl");
+    
     include("client.jl");
+    include("download.jl");
 
     include("handlers.jl")
     include("server.jl")
 
     include("async.jl");
-end;
+ end;
