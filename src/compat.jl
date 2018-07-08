@@ -56,9 +56,10 @@ else
     Base.SubString(s) = SubString(s, 1)
     Base.String(x::SubArray{UInt8,1}) = String(Vector{UInt8}(x))
 
-    macro debug(s) DEBUG_LEVEL > 0 ? :(("D- ", $(esc(s)))) : :() end
-    macro info(s)  DEBUG_LEVEL >= 0 ? :(println("I- ", $(esc(s)))) : :() end
-    macro warn(s)  DEBUG_LEVEL >= 0 ? :(println("W- ", $(esc(s)))) : :() end
+    # Logging macros discard everything but message in 0.6
+    macro debug(s, args...) DEBUG_LEVEL > 0 ? :(("D- ", $(esc(s)))) : :() end
+    macro info(s, args...)  DEBUG_LEVEL >= 0 ? :(println("I- ", $(esc(s)))) : :() end
+    macro warn(s, args...)  DEBUG_LEVEL >= 0 ? :(println("W- ", $(esc(s)))) : :() end
     macro error(m, args...)
         args = [:(print("|  "); @show $a) for a in args]
         esc(:(println("E- ", $m); $(args...); nothing))
