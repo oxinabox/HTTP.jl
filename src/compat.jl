@@ -77,6 +77,10 @@ else
     using .Sockets
 
     sprintcompact(x) = sprint(showcompact, x)
+  
+    something(x::Void, ys...) = something(ys...)
+    something(x, ys...) = x
+    something(x) = x
 end
 
 #https://github.com/JuliaWeb/MbedTLS.jl/issues/122
