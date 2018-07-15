@@ -63,7 +63,7 @@
     ,es_message_done
 )
 for i in instances(ParsingStateCode)
-    @eval const $(Symbol(string(i)[2:end])) = UInt8($i)
+    @eval $(Symbol(string(i)[2:end])) = UInt8($i)
 end
 
 
